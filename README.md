@@ -22,18 +22,18 @@ A production-ready FastAPI project template with:
 my-fastapi-project/
 ├── app/
 │   ├── main.py                 # Application entry
-│   ├── config.py               # Configuration management
-│   ├── database.py             # Database connection
-│   ├── redis_client.py         # Redis client
-│   ├── schemas/                # Pydantic schemas
-│   ├── services/               # Business logic
+│   ├── config.py              # Configuration management
+│   ├── database.py            # Database connection
+│   ├── redis_client.py        # Redis client
+│   ├── schemas/               # Pydantic schemas
+│   ├── services/              # Business logic
 │   ├── routers/v1/            # API endpoints
-│   ├── core/                  # Core utilities
-│   └── utils/                  # Helper functions
+│   ├── core/                 # Core utilities
+│   └── utils/                # Helper functions
 ├── config/
-│   ├── settings.yaml           # Base config
-│   ├── settings.dev.yaml      # Dev overrides
-│   └── settings.prod.yaml     # Prod overrides
+│   ├── settings.yaml          # Base config
+│   ├── settings.dev.yaml     # Dev overrides
+│   └── settings.prod.yaml    # Prod overrides
 ├── scripts/                   # Utility scripts
 ├── alembic/                   # Database migrations
 ├── tests/                     # Test files
@@ -176,7 +176,7 @@ my-fastapi-project/
 ├── app/
 │   ├── main.py                 # 应用入口
 │   ├── config.py               # 配置管理
-│   ├── database.py             # 数据库连接
+│   ├── database.py            # 数据库连接
 │   ├── redis_client.py        # Redis 客户端
 │   ├── schemas/               # Pydantic 模型
 │   ├── services/              # 业务逻辑
@@ -323,17 +323,3 @@ APP_NAME=FastAPI Application
 ## License | 许可证
 
 MIT License - See [LICENSE](LICENSE) file for details.
-
-### 许可证说明 | License Explanation
-
-| 权利 | 说明 |
-|------|------|
-| ✅ 商业使用 (Commercial use) | 可用于商业项目 |
-| ✅ 私用 (Private use) | 可个人使用 |
-| ✅ 修改 (Modification) | 可修改源码 |
-| ✅ 分发 (Distribution) | 可分发开源或闭源 |
-| ✅ 专利授权 (Patent use) | 可使用专利 |
-| ⚠️ 保留版权 (Copyright) | 必须保留作者版权声明 |
-| ❌ 无担保 (No warranty) | 作者不承担任何责任 |
-
-*本项目基于 MIT 许可证开源，你可以免费使用于个人和商业项目。*
