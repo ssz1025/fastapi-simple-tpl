@@ -26,17 +26,12 @@ my-fastapi-project/
 │   ├── database.py             # Database connection
 │   ├── redis_client.py         # Redis client
 │   ├── schemas/                # Pydantic schemas
-│   │   └── __init__.py
 │   ├── services/               # Business logic
-│   │   └── user_service.py
 │   ├── routers/v1/            # API endpoints
-│   │   ├── auth.py
-│   │   └── users.py
 │   ├── core/                  # Core utilities
-│   │   └── security.py
-│   └── utils/                 # Helper functions
+│   └── utils/                  # Helper functions
 ├── config/
-│   ├── settings.yaml          # Base config
+│   ├── settings.yaml           # Base config
 │   ├── settings.dev.yaml      # Dev overrides
 │   └── settings.prod.yaml     # Prod overrides
 ├── scripts/                   # Utility scripts
@@ -119,7 +114,7 @@ redis:
   single:
     host: localhost
     port: 6379
-    password: your_password  # optional
+    password: your_password
     db: 0
   cluster:
     nodes:
@@ -147,10 +142,6 @@ redis:
 ```bash
 # Development
 docker-compose up --build
-
-# Production
-# Edit docker-compose.yml: target: production
-docker-compose up --build
 ```
 
 ### Scripts
@@ -158,7 +149,7 @@ docker-compose up --build
 | Script | Usage |
 |--------|-------|
 | `python scripts/init_db.py` | Initialize database |
-| `python scripts/create_superuser.py --email x --username x --password x` | Create admin |
+| `python scripts/create_superuser.py` | Create admin |
 | `python scripts/generate_secret.py` | Generate keys |
 | `python scripts/db_backup.py backup` | Backup DB |
 | `python scripts/run_tests.py --cov` | Run tests |
@@ -186,16 +177,11 @@ my-fastapi-project/
 │   ├── main.py                 # 应用入口
 │   ├── config.py               # 配置管理
 │   ├── database.py             # 数据库连接
-│   ├── redis_client.py         # Redis 客户端
-│   ├── schemas/                # Pydantic 模型
-│   │   └── __init__.py
-│   ├── services/               # 业务逻辑
-│   │   └── user_service.py
+│   ├── redis_client.py        # Redis 客户端
+│   ├── schemas/               # Pydantic 模型
+│   ├── services/              # 业务逻辑
 │   ├── routers/v1/            # API 路由
-│   │   ├── auth.py
-│   │   └── users.py
-│   ├── core/                   # 核心工具
-│   │   └── security.py
+│   ├── core/                  # 核心工具
 │   └── utils/                 # 辅助函数
 ├── config/
 │   ├── settings.yaml          # 基础配置
@@ -281,7 +267,7 @@ redis:
   single:
     host: localhost
     port: 6379
-    password: 你的密码  # 可选
+    password: 你的密码
     db: 0
   cluster:
     nodes:
@@ -309,10 +295,6 @@ redis:
 ```bash
 # 开发环境
 docker-compose up --build
-
-# 生产环境
-# 编辑 docker-compose.yml: target: production
-docker-compose up --build
 ```
 
 ### 脚本
@@ -320,7 +302,7 @@ docker-compose up --build
 | 脚本 | 用途 |
 |------|------|
 | `python scripts/init_db.py` | 初始化数据库 |
-| `python scripts/create_superuser.py --email x --username x --password x` | 创建管理员 |
+| `python scripts/create_superuser.py` | 创建管理员 |
 | `python scripts/generate_secret.py` | 生成密钥 |
 | `python scripts/db_backup.py backup` | 备份数据库 |
 | `python scripts/run_tests.py --cov` | 运行测试 |
@@ -330,28 +312,28 @@ docker-compose up --build
 ## Environment Variables | 环境变量
 
 ```env
-# Application
 ENVIRONMENT=development
 APP_HOST=0.0.0.0
 APP_PORT=8000
 APP_NAME=FastAPI Application
-
-# Database (configure in config/settings.yaml)
-# DATABASE_TYPE=sqlite|mysql|postgresql
-
-# Redis (configure in config/settings.yaml)
-# REDIS_ENABLED=true|false
-
-# Auth
-# AUTH_SECRET_KEY=your-secret-key
-# AUTH_ALGORITHM=HS256
-# AUTH_ACCESS_TOKEN_EXPIRE_MINUTES=30
 ```
+
+---
 
 ## License | 许可证
 
 MIT License - See [LICENSE](LICENSE) file for details.
 
----
+### 许可证说明 | License Explanation
 
-MIT License
+| 权利 | 说明 |
+|------|------|
+| ✅ 商业使用 (Commercial use) | 可用于商业项目 |
+| ✅ 私用 (Private use) | 可个人使用 |
+| ✅ 修改 (Modification) | 可修改源码 |
+| ✅ 分发 (Distribution) | 可分发开源或闭源 |
+| ✅ 专利授权 (Patent use) | 可使用专利 |
+| ⚠️ 保留版权 (Copyright) | 必须保留作者版权声明 |
+| ❌ 无担保 (No warranty) | 作者不承担任何责任 |
+
+*本项目基于 MIT 许可证开源，你可以免费使用于个人和商业项目。*
