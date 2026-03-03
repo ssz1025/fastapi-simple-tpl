@@ -1,0 +1,117 @@
+# =============================================================================
+# Application Base Settings
+# =============================================================================
+# This is the base configuration. Environment-specific overrides can be placed
+# in settings.dev.yaml or settings.prod.yaml
+
+app:
+  name: "FastAPI Application"
+  version: "1.0.0"
+  debug: false
+  # API prefix
+  api_prefix: "/api/v1"
+  # CORS origins (comma-separated or list)
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+
+# =============================================================================
+# Database Configuration
+# =============================================================================
+# type: sqlite | mysql | postgresql
+database:
+  type: sqlite
+  # Echo SQL queries (useful for debugging)
+  echo: false
+  # Connection pool settings (for MySQL/PostgreSQL)
+  pool_size: 5
+  max_overflow: 10
+  pool_recycle: 3600
+  pool_pre_ping: true
+
+  # SQLite Configuration
+  sqlite:
+    path: "./data/app.db"
+    # Optional: check_same_thread for SQLite
+    check_same_thread: false
+
+  # MySQL Configuration
+  mysql:
+    host: "localhost"
+    port: 3306
+    username: "root"
+    password: ""
+    database: "app_db"
+    charset: "utf8mb4"
+
+  # PostgreSQL Configuration
+  postgresql:
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: ""
+    database: "app_db"
+
+# =============================================================================
+# Redis Configuration
+# =============================================================================
+redis:
+  # Enable or disable Redis
+  enabled: true
+  # mode: single | cluster
+  mode: single
+  # Connection timeout
+  socket_timeout: 5
+  socket_connect_timeout: 5
+  # Retry settings
+  retry_on_timeout: true
+  max_connections: 10
+
+  # Single Redis Node
+  single:
+    host: "localhost"
+    port: 6379
+    password: ""  # Leave empty for no password
+    db: 0
+
+  # Redis Cluster
+  cluster:
+    nodes:
+      - host: "localhost"
+        port: 7001
+      - host: "localhost"
+        port: 7002
+      - host: "localhost"
+        port: 7003
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  # File logging (optional)
+  file:
+    enabled: false
+    path: "./logs/app.log"
+    max_bytes: 10485760  # 10MB
+    backup_count: 5
+
+# =============================================================================
+# Auth Configuration
+# =============================================================================
+auth:
+  # JWT Secret Key (generate with: python -c "from jose import jwt; print(jwt.encode({'test': 'test'}, 'secret', algorithm='HS256'))")
+  secret_key: "your-secret-key-change-in-production"
+  algorithm: "HS256"
+  access_token_expire_minutes: 30
+  refresh_token_expire_days: 7
+# Logging Configuration
+# =============================================================================
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  # File logging (optional)
+  file:
+    enabled: false
+    path: "./logs/app.log"
+    max_bytes: 10485760  # 10MB
+    backup_count: 5

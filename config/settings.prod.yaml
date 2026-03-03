@@ -1,0 +1,19 @@
+# =============================================================================
+# Production Environment Overrides
+# =============================================================================
+
+app:
+  debug: false
+  cors_origins:
+    - "https://yourdomain.com"
+
+database:
+  echo: false
+  pool_size: 20
+  max_overflow: 40
+
+logging:
+  level: "WARNING"
+  file:
+    enabled: true
+    path: "/var/log/app/app.log"
